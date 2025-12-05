@@ -1,0 +1,33 @@
+mode: strict  # strict, relaxed, or threshold
+scoring:
+  mode: weighted  # weighted, average, minimum, or threshold
+  threshold: 0.8  # Format ambiguous: 0.8 or 80?
+
+rules:
+  - name: required_fields
+    type: required
+    priority: high  # Can be "high", "medium", "low" or numeric
+    fields:
+      - id
+      - name
+      - email
+    strict: true  # Strict mode behavior not fully documented
+
+  - name: type_validation
+    type: type
+    priority: 5  # Numeric priority - interpretation varies
+    types:
+      id: integer
+      name: string
+      email: string
+      age: integer
+    allowCoercion: false  # Coercion behavior not fully specified
+
+  - name: age_range
+    type: range
+    priority: medium
+    field: age
+    min: 0
+    max: 150
+    inclusive: true  # Inclusive vs exclusive bounds - default ambiguous
+

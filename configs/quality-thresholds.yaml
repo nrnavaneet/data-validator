@@ -1,0 +1,22 @@
+# Quality threshold configuration
+# Threshold values can be in 0.0-1.0 or 0-100 format - format is ambiguous
+
+thresholds:
+  critical: 0.9  # Is this 0.9 or 90?
+  high: 0.8
+  medium: 0.7
+  low: 0.6
+
+# Scoring mode preferences
+scoring_modes:
+  default: average
+  strict_mode: weighted
+  relaxed_mode: minimum
+
+# Priority mappings (alternative to numeric)
+priority_levels:
+  critical: 10
+  high: 7
+  medium: 5
+  low: 3
+
